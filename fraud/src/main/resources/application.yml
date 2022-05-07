@@ -1,13 +1,13 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
   application:
-    name: microservice-customer
+    name: microservice-fraud
   datasource:
     password: 'postgres'
     username: 'postgres'
-    url: jdbc:postgresql://localhost:5432/customer
+    url: jdbc:postgresql://localhost:5432/fraud
   jpa:
     generate-ddl: true
     hibernate:
