@@ -1,2 +1,4 @@
 .idea
-/target/
+./target/*
+/notification/target/*
+/customer/target/*

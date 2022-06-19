@@ -1,9 +1,11 @@
 server:
-  port: 8082
+  port: 9090
 
 spring:
   application:
     name: microservice-fraud
+  zipkin:
+    baseUrl: http://localhost:9411
   datasource:
     password: 'postgres'
     username: 'postgres'
@@ -21,6 +23,13 @@ spring:
     init:
       mode: always
       continue-on-error: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+    enabled: true
 
 
 

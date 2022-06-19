@@ -1,6 +1,22 @@
 version: "3"
 
 services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - 5672:5672
+      - 8080:15672
+      - 25676:25676
+    networks:
+      - spring
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - 9411:9411
+    networks:
+      - zipkin
   postgres:
     image: postgres:9.6
     container_name: "microservice-customer"
@@ -14,6 +30,13 @@ services:
       - 5432:5432
     networks:
       - postgres
+      - zipkin
 networks:
+  spring:
+    driver: bridge
   postgres:
     driver: bridge
+  zipkin:
+    driver: bridge
+
+

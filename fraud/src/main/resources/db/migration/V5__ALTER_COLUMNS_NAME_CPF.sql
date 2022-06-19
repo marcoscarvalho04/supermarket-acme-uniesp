@@ -1,0 +1,1 @@
+ALTER TABLE tb_fraud ADD CONSTRAINT unique_cpf_nome UNIQUE(CPF,"name")

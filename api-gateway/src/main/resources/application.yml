@@ -1,0 +1,34 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: microservice-api-gateway
+    zipkin:
+      baseUrl: http://localhost:9411
+  cloud:
+    gateway:
+      routes:
+        - id: microservice-customer
+          uri: lb://microservice-customer
+          predicates:
+            - Path=/api/v1/customers/**
+        - id: microservice-fraud
+          uri: lb://microservice-fraud
+          predicates:
+            - Path=/api/v1/frauds/**
+        - id: microservice-notification
+          uri: lb://microservice-notification
+          predicates:
+            - Path=/api/v1/notifications/**
+eureka:
+  client:
+    serviceurl:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+    enabled: true
+
+
+
+

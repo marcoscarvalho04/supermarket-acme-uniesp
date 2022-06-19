@@ -4,3 +4,31 @@ server:
 spring:
   application:
     name: microservice-customer
+  datasource:
+    password: 'postgres'
+    username: 'postgres'
+    url: jdbc:postgresql://localhost:5432/customer
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        format_sql: true
+      show-sql: true
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+    enabled: true
+
+
+
+

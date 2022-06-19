@@ -1,0 +1,1 @@
+ALTER TABLE tb_notification DROP CONSTRAINT tb_notification_cpf_customer_key;

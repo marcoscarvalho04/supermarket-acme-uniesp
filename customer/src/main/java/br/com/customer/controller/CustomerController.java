@@ -2,6 +2,7 @@ package br.com.customer.controller;
 
 import br.com.customer.config.Constants;
 import br.com.customer.config.ConvertUtils;
+import br.com.customer.exception.CustomerFraudException;
 import br.com.customer.reponse.CustomerResponse;
 import br.com.customer.request.CustomerRequest;
 import br.com.customer.service.CustomerService;
@@ -31,9 +32,17 @@ public class CustomerController {
     @Operation(summary = "Create customers", description = "create new customer to fraud system")
     @ApiResponse(responseCode = "201", description = "customer sucessfully created")
     public ResponseEntity<?> createCustomer(@RequestBody CustomerRequest customerRequest) {
-        log.info("calling customer service to create: {}", customerRequest);
-        this.customerService.saveCustomer(customerRequest);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        try {
+
+            log.info("calling customer service to create: {}", customerRequest);
+            this.customerService.saveCustomer(customerRequest);
+            return ResponseEntity.status(HttpStatus.CREATED).build();
+
+        }catch (CustomerFraudException e) {
+            return new ResponseEntity<String>("Costumer is fraud", HttpStatus.BAD_REQUEST);
+
+        }
+
 
     }
     @GetMapping

@@ -17,6 +17,7 @@ public class CustomerRequest implements Pageable {
 
     private String nome;
     private String email;
+    private String cpf;
 
     @Override
     public int getNumberOfPages() {

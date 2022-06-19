@@ -39,4 +39,11 @@ public class FraudEntity {
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
+
+    @Column(name = "cpf")
+    private String cpf;
+
+    @Column(name = "name")
+    private String name;
+
 }

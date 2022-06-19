@@ -1,0 +1,44 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: microservice-notification
+    zipkin:
+      baseUrl: http://localhost:9411
+  datasource:
+    password: 'postgres'
+    username: 'postgres'
+    url: jdbc:postgresql://localhost:5432/notification
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        format_sql: true
+      show-sql: true
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+    enabled: true
+rabbitmq:
+  exchange:
+    internal: internal.exchange
+  queue:
+    notification: notification.queue
+  routing-keys:
+    internal.notification.routing-key
+
+
+
+
+
