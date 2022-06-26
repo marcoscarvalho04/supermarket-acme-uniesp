@@ -18,8 +18,7 @@ São os serviços que podem ser utilizados. O enfoque aqui não foi fazer uma re
 fazer com que esses serviços subam usando um api-gateway, o zipkin (para logar e verificar os traces das chamadas aos microserviços) e o redirecionamento, como foi
 explicado na seção anterior. Nesse caso, o sistema consiste em um cadastro de clientes, de notificações para os clientes e um banco de fraude. Para cada cadastro de 
 cliente, o sistema verifica se ele é uma fraude mesmo e, caso não seja, ele é cadatrado normalmente. Como disse, o enfoque não é na regra de negócio, pois muito
-se pode melhorar nisso, mas no fato de que usamos a stack spring para colocar um sistema robusto de gerenciamento das chamadas das apis através, tornando-o um pouco
-mais profissional. 
+se pode melhorar nisso, mas no fato de que usamos a stack spring para colocar um sistema robusto de gerenciamento das chamadas das apis através dessa tecnolgia, tornando-o um pouco mais profissional. 
 
 # clients 
 É utilizado para fazer as chamadas internas, encapsulando através do feng client as chamadas que as API's farão internamente para consumir recursos que precisam 
